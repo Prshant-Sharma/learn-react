@@ -9,28 +9,27 @@ function UserForm() {
     const [showPassword1, setShowPassword1] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
 
-    const [formData, setFormData] = useState({});
+    // const [formData, setFormData] = useState({});
 
-    const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value});
-    }
+    // const handleChange = (e) => {
+    //     setFormData({...formData, [e.target.name]: e.target.value});
+    // }
 
     const onsubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
-        // if(password !== '' && confirmPass !== '') {
-        //     if(password.length >= 4) {
-        //         if(password === confirmPass) {
-        //             console.log(password);
-        //         } else {
-        //             alert("Password didn't match");
-        //         }
-        //     } else {
-        //         alert('Password must be at least 4 characters long');
-        //     }
-        // } else {
-        //     alert('Please enter password fields..');
-        // }
+        // console.log(formData);
+        if(password !== '' && confirmPass !== '') {
+            if(password.length >= 4) {
+                if(password === confirmPass) {
+                } else {
+                    alert("Password didn't match");
+                }
+            } else {
+                alert('Password must be at least 4 characters long');
+            }
+        } else {
+            alert('Please enter password fields..');
+        }
     }
 
     const showPass = <FontAwesomeIcon icon={faEye} />
@@ -41,11 +40,11 @@ function UserForm() {
             <form className="user-form" onSubmit={onsubmit}>
                 <div className="form-control">
                     <label>Name</label>
-                    <input type="text" value={formData.userName} placeholder="Enter your full name" onChange={handleChange} required/>
+                    <input type="text" placeholder="Enter your full name" required/>
                 </div>
                 <div className="form-control">
                     <label>Email Id</label>
-                    <input type="email" value={formData.email} placeholder="Enter your email" onChange={handleChange} required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                    <input type="email" placeholder="Enter your email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
                 </div>
                 <div className="form-control">
                     <label>Password</label>
